@@ -9,12 +9,13 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View,
+  ScrollView,
   Image
 } from 'react-native';
 
 import Blink from './components/Blink';
 import PizzaTranslator from './components/PizzaTranslator';
+import Buttons from './components/Buttons';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -29,7 +30,7 @@ export default class App extends Component {
       uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
     };
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Image source={pic} style={{ width: 193, height: 110 }} />
 
         <Blink
@@ -38,13 +39,17 @@ export default class App extends Component {
 
         <PizzaTranslator />
 
+        <Buttons />
+
         <Text style={styles.instructions}>
           To get started, edit App.js
         </Text>
+
         <Text style={styles.instructions}>
           {instructions}
         </Text>
-      </View>
+
+      </ScrollView>
     );
   }
 }
@@ -52,8 +57,8 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
