@@ -8,9 +8,7 @@ export default class Blink extends Component {
 
         // Toggle the state every second
         setInterval(() => {
-            this.setState(previousState => {
-                return { showText: !previousState.showText };
-            });
+            this.setState( previousState => ({showText: !previousState.showText}) );
         }, 1000);
     }
 

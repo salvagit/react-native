@@ -18,7 +18,7 @@ import {
 import Blink from './components/Blink';
 import PizzaTranslator from './components/PizzaTranslator';
 import Buttons from './components/Buttons';
-import FlatListBasics from './components/List';
+import List from './components/List';
 
 import renderIf from './src/renderIf';
 
@@ -46,7 +46,17 @@ export default class App extends Component {
 
         <Buttons />
 
-        <FlatListBasics />
+        <List
+          elements={[
+            { key: 'Devin' },
+            { key: 'Jackson' },
+            { key: 'James' },
+            { key: 'Joel' },
+            { key: 'John' },
+            { key: 'Jillian' },
+            { key: 'Jimmy' },
+            { key: 'Julie' },
+          ]} />
 
         <View>
 
