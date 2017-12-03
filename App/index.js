@@ -15,7 +15,7 @@ import {
   View
 } from 'react-native';
 
-import PizzaTranslator from './components/PizzaTranslator';
+import Input from './components/Input';
 import Buttons from './components/Buttons';
 import List from './components/List';
 
@@ -43,7 +43,10 @@ export default class App extends Component {
           Welcome to React Native!
         </Text>
 
-        <PizzaTranslator />
+        <Input
+          style={{ height: 40 }}
+          placeholder="Type here to translate!"
+        />
 
         <Buttons />
 
