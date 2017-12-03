@@ -15,7 +15,6 @@ import {
   View
 } from 'react-native';
 
-import Blink from './components/Blink';
 import PizzaTranslator from './components/PizzaTranslator';
 import Buttons from './components/Buttons';
 import List from './components/List';
@@ -38,9 +37,11 @@ export default class App extends Component {
       <ScrollView style={styles.container}>
         <Image source={pic} style={{ width: 193, height: 110 }} />
 
-        <Blink
+        <Text
           style={styles.welcome}
-          text="Welcome to React Native!" />
+          >
+          Welcome to React Native!
+        </Text>
 
         <PizzaTranslator />
 
