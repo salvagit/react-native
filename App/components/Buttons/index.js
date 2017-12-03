@@ -10,9 +10,11 @@ import {
     TouchableNativeFeedback, 
     TouchableWithoutFeedback,
     Button,
-    View 
+    View
 } from 'react-native';
+
 import styles from './styles';
+import renderIf from '../../src/renderIf';
 
 export default class Buttons extends Component {
     _onPressButton() {
@@ -36,13 +38,20 @@ export default class Buttons extends Component {
                         <Text style={styles.buttonText}>TouchableOpacity</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableNativeFeedback
-                    onPress={this._onPressButton}
-                    background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''}>
-                    <View style={styles.button}>
-                        <Text style={styles.buttonText}>TouchableNativeFeedback</Text>
-                    </View>
-                </TouchableNativeFeedback>
+
+                {
+                    renderIf(
+                        Platform.OS === 'android',
+                        <TouchableNativeFeedback
+                            onPress={this._onPressButton}
+                            background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''}>
+                            <View style={styles.button}>
+                                <Text style={styles.buttonText}>TouchableNativeFeedback</Text>
+                            </View>
+                        </TouchableNativeFeedback>
+                    )
+                }
+
                 <TouchableWithoutFeedback
                     onPress={this._onPressButton}
                 >

@@ -10,12 +10,17 @@ import {
   StyleSheet,
   Text,
   ScrollView,
-  Image
+  Image,
+  ViewPagerAndroid,
+  View
 } from 'react-native';
 
 import Blink from './components/Blink';
 import PizzaTranslator from './components/PizzaTranslator';
 import Buttons from './components/Buttons';
+import FlatListBasics from './components/List';
+
+import renderIf from './src/renderIf';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -40,6 +45,27 @@ export default class App extends Component {
         <PizzaTranslator />
 
         <Buttons />
+
+        <FlatListBasics />
+
+        <View>
+
+          {
+            renderIf( Platform.OS === 'android',
+              <ViewPagerAndroid
+              style={styles.viewPager}
+              initialPage={0}>
+                  <View style={styles.pageStyle} key="1">
+                    <Text>First page</Text>
+                  </View>
+                  <View style={styles.pageStyle} key="2">
+                    <Text>Second page</Text>
+                  </View>
+              </ViewPagerAndroid>
+          )}
+        
+        </View>
+
 
         <Text style={styles.instructions}>
           To get started, edit App.js
@@ -70,5 +96,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+    viewPager: {
+    flex: 1
+  },
+  pageStyle: {
+    alignItems: 'center',
+    padding: 20,
   },
 });
