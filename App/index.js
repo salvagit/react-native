@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -16,7 +10,7 @@ import {
 } from 'react-native';
 
 import Input from './components/Input';
-import Buttons from './components/Buttons';
+import Button from './components/Button';
 import List from './components/List';
 
 import renderIf from './src/renderIf';
@@ -48,7 +42,45 @@ export default class App extends Component {
           placeholder="Type here to translate!"
         />
 
-        <Buttons />
+        <View style={{ alignItems: 'center' }}>
+
+          <Button 
+            type= "TouchableHighlight"
+            underlayColor="white"
+          >
+            TouchableHighlight
+          </Button>
+
+          <Button 
+            type= "TouchableOpacity"
+            underlayColor="white"
+          >
+            TouchableOpacity
+          </Button>
+
+          <Button 
+            type= "TouchableNativeFeedback"
+            underlayColor="white"
+          >
+            TouchableNativeFeedback
+          </Button>
+
+          <Button 
+            type= "TouchableWithoutFeedback"
+            underlayColor="white"
+          >
+            TouchableWithoutFeedback
+          </Button>
+
+          <Button 
+            type= "TouchableHighlightonLongPress"
+            underlayColor="white"
+          >
+            Touchable with Long Press
+          </Button>
+
+        </View>
+
 
         <List
           elements={[
